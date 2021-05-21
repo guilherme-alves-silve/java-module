@@ -1,4 +1,4 @@
-package packt.sortutil; 
+package packt.sortutil;
 
 import java.util.*;
 
