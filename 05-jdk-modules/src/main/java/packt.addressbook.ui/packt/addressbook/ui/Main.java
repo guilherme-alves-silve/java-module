@@ -22,7 +22,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
-import packt.util.SortUtil;
+import packt.sortutil.SortUtil;
 import packt.contact.model.Contact;
 import packt.contact.util.ContactLoadException;
 import packt.contact.util.ContactLoader;
@@ -36,13 +36,14 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 
-		final var contacts = new ArrayList<Contact>();
 		final var contactLoader = new ContactLoader();
 		final var sortUtil = new SortUtil();
+		final List<Contact> contacts;
 		try {
 			contacts = contactLoader.loadContacts("../input.txt");
 		} catch (ContactLoadException e) {
 			System.exit(0);
+			return;
 		}
 
 		sortUtil.sortList(contacts);
@@ -108,7 +109,7 @@ public class Main extends Application {
 			// Get the Contact instance which was clicked
 			Contact contact = finalContactList.get(selectedIndex);
 			// Set the values to the labels on the right
-			phone.setText("Phone: " + contact.getPhone());
+			phone.setText("Phone: " + contact.getPhoneNumber());
 			addressLabel.setText("Address");
 			street.setText(contact.getAddress().getStreet());
 			city.setText(contact.getAddress().getCity());

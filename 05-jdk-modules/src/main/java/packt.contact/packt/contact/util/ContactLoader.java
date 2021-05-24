@@ -51,7 +51,7 @@ public class ContactLoader {
         return contacts;
     }
 
-    private Document getDocument(final String fileName) {
+    private Document getDocument(final String fileName) throws ContactLoadException {
         try {
             final var xmlUtil = new XmlUtil();
             return xmlUtil.loadXmlFile(fileName);
@@ -62,10 +62,11 @@ public class ContactLoader {
     }
 
     private Contact createContact(Node contactNode) {
-        return new Contact()
-            .setFirstName(xmlUtil.getElement(contactNode, "firstname"))
-            .setLastName(xmlUtil.getElement(contactNode, "lastname"))
-            .setPhone(xmlUtil.getElement(contactNode, "phone"));
+        return new Contact(
+            xmlUtil.getElement(contactNode, "firstname"),
+            xmlUtil.getElement(contactNode, "lastname"),
+            xmlUtil.getElement(contactNode, "phone")
+        );
     }
 
     private Address createAddress(Node addressNode) {

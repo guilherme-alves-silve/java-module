@@ -2,7 +2,7 @@ package packt.addressbook.util;
 
 import java.util.*;
 
-import packt.addressbook.model.Contact;
+import packt.contact.model.Contact;
 
 public class ContactUtil { 
 
