@@ -8,6 +8,8 @@ This repository is a study of modular Java 9. It's based on the book [Modular Pr
 * 05-jdk-modules
 * 06-readability-accessibility
 * 07-services
+* 07-services-better
+* 08-module-with-jlink
 * 09-module-patterns
 * 10-migrating-application
 * 11-migrating-application
